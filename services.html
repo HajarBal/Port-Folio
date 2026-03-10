@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Spring Charms</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo-area">
+                <div class="logo-circle">🌿</div>
+                <div class="site-name">Spring Charms</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html" class="active">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1>Our Collection</h1>
+
+        <div class="search-section">
+            <input type="text" id="searchInput" class="search-bar" placeholder="Search for keychains (e.g. Flower, Heart, Soccerball , Pikachu)...">
+            
+            <div class="category-filters">
+                <button class="filter-btn active" onclick="filterCategory('all', this)">All</button>
+                <button class="filter-btn" onclick="filterCategory('cute', this)">Cute</button>
+                <button class="filter-btn" onclick="filterCategory('cool', this)">Cool</button>
+                <button class="filter-btn" onclick="filterCategory('anime', this)">Anime</button>
+                <button class="filter-btn" onclick="filterCategory('girly', this)">Girly</button>
+                <button class="filter-btn" onclick="filterCategory('other', this)">Other</button>
+            </div>
+        </div>
+
+        <div class="products-grid">
+            
+            <div class="product-card" data-category="cute" data-name="animal baby chick">
+                <img src="Baby Chick.jpeg" class="product-img" alt="Baby Chick Keychain-img">
+                <div class="product-info">
+                    <span class="badge cute">Cute</span>
+                    <h3>Baby Chick Keychain</h3>
+                    <p class="price">19.99DH</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="cool" data-name="sport ball">
+                <img src="Sport Balls.jpeg" class="product-img" alt="Sport Ball Keychain-img">
+                <div class="product-info">
+                    <span class="badge cool">Cool</span>
+                    <h3>Sport Ball Keychain</h3>
+                    <p class="price">16.99DH</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="anime" data-name="anime pokemon pikachu">
+                <img src="pikachu.jpeg" class="product-img" alt="Pikachu Keychain-img">
+                <div class="product-info">
+                    <span class="badge anime">Anime</span>
+                    <h3>Pikachu Keychain</h3>
+                    <p class="price">29.99DH</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="girly" data-name="love pink heart">
+                <img src="heart.jpeg" class="product-img" alt="Gift Heart Keychain-img">
+                <div class="product-info">
+                    <span class="badge girly">Girly</span>
+                    <h3>Gift Heart Keychain</h3>
+                    <p class="price">14.99DH</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="cute" data-name="fruit fresh">
+                <img src="Fruits.jpeg" class="product-img" alt="Fruit Keychain-img">
+                <div class="product-info">
+                    <span class="badge cute">Cute</span>
+                    <h3>Fruit Keychain</h3>
+                    <p class="price">24.99DH</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="other" data-name="wristlet keyring simple">
+                <img src="Wristlet.jpeg" class="product-img" alt="Wristlet Keyring-img">
+                <div class="product-info">
+                    <span class="badge other">Other</span>
+                    <h3>Wristlet Keyring</h3>
+                    <p class="price">12.99DH</p>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Spring Charms. <a href="legal.html">Legal Mentions</a></p>
+    </footer>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('keyup', function(e) {
+            const term = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.product-card');
+
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                const category = card.getAttribute('data-category').toLowerCase();
+                
+                if (name.includes(term) || category.includes(term)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+
+        function filterCategory(category, btnElement) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

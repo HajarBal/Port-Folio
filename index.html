@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Spring Charms</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-area" onclick="showPage('home')">
+                <div class="logo-img">🌿</div>
+                <div class="site-name">Spring Charms</div>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-bar" placeholder="Search for keychains (e.g. Flower, Heart, Soccerball , Pikachu)...">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="page-section active">
+            <div style="text-align: center; padding: 40px 0;">
+                <h1 style="font-size: 2.5rem; border: none;">Carry Your Style Everywhere! 🌿</h1>
+                <p style="font-size: 1.5rem; color: #555;">↓ Discover the cutest, coolest, and most unique keychains for your collection ↓</p>
+                <img src="ad.jpeg" alt="Banner" style="width: 100%; border-radius: 15px; margin: 20px 0;">
+                
+                <a href="services.html"><button onclick="showPage('products')" class="submit-btn" style="width: auto; padding: 15px 40px; font-size: 1.2rem;">Browse Collection</button></a>
+            </div>
+        </section>
+    </main>
+        <footer>
+        <p>&copy; 2025 Spring Charms. <a href="legal.html">Legal Mentions</a></p>
+    </footer>
+</body>
